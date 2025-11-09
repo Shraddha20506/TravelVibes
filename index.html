@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TravelVibe - Home</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <style>
+    /* General */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    .navbar {
+      padding: 15px 0;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .navbar.scrolled {
+      background-color: #0c0c0c !important;
+      padding: 8px 0;
+      box-shadow: 0px 3px 10px rgba(0,0,0,0.3);
+    }
+
+    .navbar-brand {
+      font-size: 1.7rem;
+      font-weight: bold;
+      color: #00bcd4 !important;
+      letter-spacing: 1px;
+    }
+
+    .nav-link {
+      color: #ffffff !important;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover {
+      color: #00bcd4 !important;
+      transform: scale(1.1);
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 85vh;
+      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)),
+                  url('https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .btn-primary, .btn-success {
+      padding: 12px 25px;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      transition: 0.3s ease-in-out;
+    }
+
+    .btn-primary:hover, .btn-success:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Featured Cards */
+    .card {
+      border: none;
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    .card-img-top {
+      height: 240px;
+      object-fit: cover;
+    }
+
+    .card-title {
+      font-weight: bold;
+      color: #0078aa;
+    }
+
+    /* Footer */
+    footer {
+      font-size: 1rem;
+      background-color: #0c0c0c;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">🌍 TravelVibe</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto text-center">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="destinations.html">Destinations</a></li>
+          <li class="nav-item"><a class="nav-link" href="packages.html">Packages</a></li>
+          <li class="nav-item"><a class="nav-link" href="booking.html">Bookings</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div>
+      <h1>Explore the World with TravelVibe</h1>
+      <p>Best deals, amazing destinations, unforgettable experiences</p>
+      <a href="destinations.html" class="btn btn-primary m-2">View Destinations</a>
+      <a href="packages.html" class="btn btn-success m-2">Book Now</a>
+    </div>
+  </section>
+
+  <!-- Featured Section -->
+  <section class="container my-5">
+    <h2 class="text-center mb-4 fw-bold">Featured Packages</h2>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg" class="card-img-top">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Paris Getaway</h5>
+            <p class="card-text">3 Nights, 4 Days – Explore the city of love!</p>
+            <a href="packages.html" class="btn btn-primary mt-auto">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg" class="card-img-top">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Bali Adventure</h5>
+            <p class="card-text">5 Nights, 6 Days – Beaches, culture & relaxation.</p>
+            <a href="packages.html" class="btn btn-primary mt-auto">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="https://images.pexels.com/photos/3787839/pexels-photo-3787839.jpeg" class="card-img-top">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Dubai Luxury</h5>
+            <p class="card-text">4 Nights, 5 Days – Sky-high luxury & desert safari.</p>
+            <a href="packages.html" class="btn btn-primary mt-auto">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-white text-center py-3">
+    <p>&copy; 2025 TravelVibe | 📞 +91 9587461463 | ✉️ TravelVibe@email.com</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Navbar Scroll Effect -->
+  <script>
+    window.addEventListener("scroll", function () {
+      let nav = document.querySelector(".navbar");
+      nav.classList.toggle("scrolled", window.scrollY > 50);
+    });
+  </script>
+
+</body>
+</html>

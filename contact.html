@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - TravelVibe</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #0a3d62, #3c6382);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .contact-card {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 15px;
+      padding: 30px;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .form-control:focus {
+      border-color: #0a3d62;
+      box-shadow: 0 0 8px rgba(0, 134, 255, 0.4);
+      transition: 0.3s ease;
+    }
+    .btn-primary {
+      border-radius: 6px;
+      font-weight: 600;
+      padding: 10px;
+    }
+    .btn-primary:hover {
+      transform: scale(1.02);
+      transition: 0.3s;
+    }
+    .error-msg {
+      color: red;
+      font-size: 13px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">🌍 TravelVibe</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto gap-2">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="destinations.html">Destinations</a></li>
+          <li class="nav-item"><a class="nav-link" href="packages.html">Packages</a></li>
+          <li class="nav-item"><a class="nav-link" href="booking.html">Bookings</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact.html">Contact Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container py-5">
+    <h2 class="text-center mb-4 fw-bold text-white">Get in Touch</h2>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="contact-card shadow-lg">
+          <div class="alert alert-success d-none" id="thankYouMessage">
+            ✅ Thank you! We received your message.
+          </div>
+          <form id="contactForm">
+            <label class="form-label fw-semibold">Full Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+            <span id="nameError" class="error-msg"></span>
+            <br>
+            <label class="form-label fw-semibold">Email Address</label>
+            <input type="text" class="form-control" id="email" placeholder="email@example.com">
+            <span id="emailError" class="error-msg"></span>
+            <br>
+            <label class="form-label fw-semibold">Phone Number</label>
+            <input type="text" class="form-control" id="phone" placeholder="10-digit phone number">
+            <span id="phoneError" class="error-msg"></span>
+            <br>
+            <label class="form-label fw-semibold">Message</label>
+            <textarea class="form-control" id="message" rows="4" placeholder="Write your message..."></textarea>
+            <span id="messageError" class="error-msg"></span>
+            <br>
+            <button type="submit" class="btn btn-primary w-100">Send Message</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="contact-card shadow-lg h-100">
+          <h5 class="mb-3 fw-semibold">📍 Address</h5>
+          <p>123 Travel Street, Wanderlust City, India</p>
+          <h5 class="mb-3 fw-semibold">📞 Phone</h5>
+          <p>+91 9587461463</p>
+          <h5 class="mb-3 fw-semibold">✉️ Email</h5>
+          <p>support@travelvibe.com</p>
+          <h5 class="mb-3 fw-semibold">🕒 Working Hours</h5>
+          <p>Mon – Sat: 9:00 AM — 6:00 PM <br> Sunday Closed</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 TravelVibe</p>
+  </footer>
+  <script>
+    function validateForm() {
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let phone = document.getElementById("phone").value.trim();
+      let message = document.getElementById("message").value.trim();
+      let isValid = true;
+      document.getElementById("nameError").innerHTML = "";
+      document.getElementById("emailError").innerHTML = "";
+      document.getElementById("phoneError").innerHTML = "";
+      document.getElementById("messageError").innerHTML = "";
+      if (!/^[A-Za-z ]{3,}$/.test(name)) {
+        document.getElementById("nameError").innerHTML = "Enter a valid name (letters only)";
+        isValid = false;
+      }
+      if (!/^[^ ]+@[^ ]+\.[a-z]{2,3}$/.test(email)) {
+        document.getElementById("emailError").innerHTML = "Enter a valid email address";
+        isValid = false;
+      }
+      if (!/^[6-9][0-9]{9}$/.test(phone)) {
+        document.getElementById("phoneError").innerHTML = "Phone number must be 10 digits starting with 6-9";
+        isValid = false;
+      }
+      if (message.length < 5) {
+        document.getElementById("messageError").innerHTML = "";
+        isValid = false;
+      }
+      return isValid;
+    }
+    document.getElementById("contactForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (validateForm()) {
+        document.getElementById("thankYouMessage").classList.remove("d-none");
+        document.getElementById("contactForm").reset();
+      }
+    });
+    document.querySelectorAll("input, textarea").forEach(input => {
+      input.addEventListener("input", () => {
+        input.nextElementSibling.innerHTML = "";
+      });
+    });
+  </script>
+</body>
+</html>

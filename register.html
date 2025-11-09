@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register - TravelVibe</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .register-box {
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 14px;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    }
+    h2 {
+      font-weight: bold;
+    }
+    span.error {
+      color: red;
+      font-size: 13px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-box">
+    <h2 class="text-center mb-4">Create Your TravelVibe Account 🌍</h2>
+    <form id="registerForm" novalidate>
+      <div class="mb-3">
+        <label class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter your name">
+        <span id="nameError" class="error"></span>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email address</label>
+        <input type="text" class="form-control" id="email" placeholder="Enter your email">
+        <span id="emailError" class="error"></span>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Phone Number</label>
+        <input type="text" class="form-control" id="phone" placeholder="Enter your phone number">
+        <span id="phoneError" class="error"></span>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Gender</label>
+        <select class="form-select" id="gender">
+          <option value="" disabled selected>Select gender</option>
+          <option>Female</option>
+          <option>Male</option>
+          <option>Other</option>
+        </select>
+        <span id="genderError" class="error"></span>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Date of Birth</label>
+        <input type="date" class="form-control" id="dob">
+        <span id="dobError" class="error"></span>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Country</label>
+        <input type="text" class="form-control" id="country" placeholder="Enter your country">
+        <span id="countryError" class="error"></span>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Create Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Enter password">
+        <span id="passError" class="error"></span>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="confirm" placeholder="Confirm password">
+        <span id="cpassError" class="error"></span>
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="showPassword">
+        <label for="showPassword" class="form-check-label">Show Password</label>
+      </div>
+      <button class="btn btn-primary w-100 mt-2" type="submit">Register</button>
+      <p class="text-center mt-3">
+        Already have an account? <a href="login.html" class="text-decoration-none">Login</a>
+      </p>
+    </form>
+  </div>
+<script>
+const form = document.getElementById("registerForm");
+document.getElementById("showPassword").addEventListener("click", () => {
+  const pass = document.getElementById("password");
+  const confirm = document.getElementById("confirm");
+  pass.type = pass.type === "password" ? "text" : "password";
+  confirm.type = confirm.type === "password" ? "text" : "password";
+});
+document.querySelectorAll("input, select").forEach(input => {
+  input.addEventListener("input", validateForm);
+});
+form.addEventListener("submit", validateForm);
+function validateForm(event) {
+  if (event) event.preventDefault();
+  let valid = true;
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let phone = document.getElementById("phone").value.trim();
+  let gender = document.getElementById("gender").value;
+  let dob = document.getElementById("dob").value;
+  let country = document.getElementById("country").value.trim();
+  let password = document.getElementById("password").value;
+  let confirm = document.getElementById("confirm").value;
+  document.querySelectorAll("span.error").forEach(e => e.innerHTML = "");
+  if (name === "" || !/^[A-Za-z ]+$/.test(name)) {
+    document.getElementById("nameError").innerHTML = "Enter a valid name";
+    valid = false;
+  }
+  let emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z]+\.[A-Za-z]{2,}$/;
+  if (!emailPattern.test(email)) {
+    document.getElementById("emailError").innerHTML = "Enter a valid email";
+    valid = false;
+  }
+  let phonePattern = /^[6-9]\d{9}$/;
+  if (!phonePattern.test(phone)) {
+    document.getElementById("phoneError").innerHTML = "Enter a valid 10-digit phone number";
+    valid = false;
+  }
+  if (gender === "") {
+    document.getElementById("genderError").innerHTML = "Select gender";
+    valid = false;
+  }
+  if (dob === "") {
+    document.getElementById("dobError").innerHTML = "Select date of birth";
+    valid = false;
+  }
+  if (country === "") {
+    document.getElementById("countryError").innerHTML = "Enter country";
+    valid = false;
+  }
+  let passPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+  if (!passPattern.test(password)) {
+    document.getElementById("passError").innerHTML = "Min 8 characters (1 letter & 1 number)";
+    valid = false;
+  }
+  if (confirm !== password || confirm === "") {
+    document.getElementById("cpassError").innerHTML = "Passwords do not match";
+    valid = false;
+  }
+  if (valid && event.type === "submit") {
+    alert("✅ Registration Successful!");
+    form.reset();
+  }
+  return valid;
+}
+</script>
+</body>
+</html>

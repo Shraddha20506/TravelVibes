@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking - TravelVibe</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #0a3d62, #00c3ff);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .booking-card {
+      background: white;
+      border-radius: 12px;
+      padding: 35px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+      transition: all .3s ease-in-out;
+    }
+    .booking-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.3);
+    }
+    h2 {
+      color: white;
+      letter-spacing: 1px;
+    }
+    label {
+      font-weight: 600;
+    }
+    #bookingForm span {
+      color: red;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .btn-success {
+      transition: all .3s;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+    .btn-success:hover {
+      letter-spacing: 1px;
+      transform: scale(1.07);
+    }
+    footer {
+      margin-top: 50px;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">🌍 TravelVibe</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="destinations.html">Destinations</a></li>
+          <li class="nav-item"><a class="nav-link" href="packages.html">Packages</a></li>
+          <li class="nav-item"><a class="nav-link active" href="booking.html">Bookings</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container my-5">
+    <h2 class="text-center mb-4 fw-bold">Book Your Dream Trip 🌍</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-6 booking-card">
+        <form id="bookingForm" onsubmit="return validateBooking()">
+          <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+            <span id="nameError"></span>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="text" class="form-control" id="email" placeholder="Enter your email">
+            <span id="emailError"></span>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Phone Number</label>
+            <input type="text" class="form-control" id="phone" placeholder="Enter your phone number">
+            <span id="phoneError"></span>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Select Package</label>
+            <select class="form-select" id="package">
+              <option value="">Choose a package</option>
+              <option>Paris Getaway</option>
+              <option>Bali Adventure</option>
+              <option>Dubai Luxury</option>
+              <option>Maldives Escape</option>
+              <option>Swiss Alps Tour</option>
+            </select>
+            <span id="packageError"></span>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Travel Date</label>
+            <input type="date" class="form-control" id="date">
+            <span id="dateError"></span>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Number of Customers</label>
+            <input type="number" class="form-control" id="customers" min="1" max="20">
+            <span id="customerError"></span>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-success px-4">Submit Booking</button>
+          </div>
+          <div class="text-center mt-3">
+            <a href="mybookings.html" class="btn btn-outline-primary">View Bookings</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 TravelVibe | 📞 +91 9587461463 | ✉️ TravelVibe@email.com</p>
+  </footer>
+  <script>
+    function validateBooking() {
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let phone = document.getElementById("phone").value.trim();
+      let packageSelect = document.getElementById("package").value;
+      let travelDate = document.getElementById("date").value;
+      let customerCount = document.getElementById("customers").value;
+      let valid = true;
+      document.getElementById("nameError").innerHTML = "";
+      document.getElementById("emailError").innerHTML = "";
+      document.getElementById("phoneError").innerHTML = "";
+      document.getElementById("packageError").innerHTML = "";
+      document.getElementById("dateError").innerHTML = "";
+      document.getElementById("customerError").innerHTML = "";
+      if (!/^[A-Za-z ]{3,}$/.test(name)) {
+        document.getElementById("nameError").innerHTML = "Enter valid name (min 3 letters)";
+        valid = false;
+      }
+      let emailFormat = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+      if (!emailFormat.test(email)) {
+        document.getElementById("emailError").innerHTML = "Enter valid email address";
+        valid = false;
+      }
+      if (!/^[6-9][0-9]{9}$/.test(phone)) {
+        document.getElementById("phoneError").innerHTML = "Valid 10-digit phone number required";
+        valid = false;
+      }
+      if (packageSelect === "") {
+        document.getElementById("packageError").innerHTML = "Please select a package";
+        valid = false;
+      }
+      if (travelDate === "") {
+        document.getElementById("dateError").innerHTML = "Please select a travel date";
+        valid = false;
+      }
+      if (customerCount < 1 || customerCount > 20) {
+        document.getElementById("customerError").innerHTML = "Enter 1–20 customers";
+        valid = false;
+      }
+      if (valid) {
+        alert("✅ Booking Successful! Our team will contact you shortly.");
+        document.getElementById("bookingForm").reset();
+      }
+      return false;
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Packages - TravelVibe</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
+      padding: 40px;
+    }
+
+ .top-bar, .bottom-bar {
+      background-color: #2a5298;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .add-package-btn {
+      display: block;
+      max-width: 200px;
+      margin: 0 auto 30px auto;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      text-align: center;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+
+    .add-package-btn:hover {
+      background-color: #218838;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    th, td {
+      padding: 15px 20px;
+      text-align: left;
+      border-bottom: 1px solid #e1e4e8;
+    }
+
+    th {
+      background-color: #2c3e50;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    tr:hover {
+      background-color: #f1f3f6;
+    }
+
+    .btn-action {
+      background-color: #2c3e50;
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+      margin-right: 5px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-action:hover {
+      background-color: #1a2533;
+    }
+
+    .package-img {
+      width: 100px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    /* Responsive table */
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead tr {
+        display: none;
+      }
+
+      td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #2c3e50;
+      }
+
+      td img.package-img {
+        margin-right: 10px;
+      }
+
+      .btn-action {
+        margin: 5px 0 0 0;
+      }
+    }
+
+    footer {
+      background-color: #2a5298;
+      color: #fff;
+      text-align: center;
+      padding: 15px 10px;
+      margin-top: auto;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #28a745;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Contact Bar -->
+  <div class="top-bar d-flex justify-content-between align-items-center">
+    <div><span class="emoji">📞</span>+91 9587461463</div>
+    <div><span class="emoji">📧</span>TravelVibe@gmail.com</div>
+  </div>
+
+  <h2>📋 Manage Travel Packages</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Package Name</th>
+        <th>Destination</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Paris Package -->
+      <tr>
+        <td data-label="Image"><img src="https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg" class="package-img" alt="Paris Getaway"></td>
+        <td data-label="Package Name">Paris Getaway</td>
+        <td data-label="Destination">Paris</td>
+        <td data-label="Price">₹9000</td>
+        <td data-label="Actions">
+          <a href="edit-package.html" class="btn-action">Edit</a>
+          <a href="view-package.html" class="btn-action">View</a>
+          <a href="delete-package.html" class="btn-action">Delete</a>
+        </td>
+      </tr>
+
+      <!-- Bali Package -->
+      <tr>
+        <td data-label="Image"><img src="https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg" class="package-img" alt="Bali Adventure"></td>
+        <td data-label="Package Name">Bali Adventure</td>
+        <td data-label="Destination">Bali</td>
+        <td data-label="Price">₹15000</td>
+        <td data-label="Actions">
+          <a href="edit-package.html" class="btn-action">Edit</a>
+          <a href="view-package.html" class="btn-action">View</a>
+          <a href="delete-package.html" class="btn-action">Delete</a>
+        </td>
+      </tr>
+
+      <!-- Dubai Package -->
+      <tr>
+        <td data-label="Image"><img src="https://images.pexels.com/photos/3787839/pexels-photo-3787839.jpeg" class="package-img" alt="Dubai Luxury"></td>
+        <td data-label="Package Name">Dubai Luxury</td>
+        <td data-label="Destination">Dubai</td>
+        <td data-label="Price">₹30000</td>
+        <td data-label="Actions">
+          <a href="edit-package.html" class="btn-action">Edit</a>
+          <a href="view-package.html" class="btn-action">View</a>
+          <a href="delete-package.html" class="btn-action">Delete</a>
+        </td>
+      </tr>
+
+      <!-- Maldives Package -->
+      <tr>
+        <td data-label="Image"><img src="https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg" class="package-img" alt="Maldives Escape"></td>
+        <td data-label="Package Name">Maldives Escape</td>
+        <td data-label="Destination">Maldives</td>
+        <td data-label="Price">₹15000</td>
+        <td data-label="Actions">
+          <a href="edit-package.html" class="btn-action">Edit</a>
+          <a href="view-package.html" class="btn-action">View</a>
+          <a href="delete-package.html" class="btn-action">Delete</a>
+        </td>
+      </tr>
+
+      <!-- Swiss Alps Package -->
+      <tr>
+        <td data-label="Image"><img src="https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg" class="package-img" alt="Swiss Alps Tour"></td>
+        <td data-label="Package Name">Swiss Alps Tour</td>
+        <td data-label="Destination">Switzerland</td>
+        <td data-label="Price">₹18000</td>
+        <td data-label="Actions">
+          <a href="edit-package.html" class="btn-action">Edit</a>
+          <a href="view-package.html" class="btn-action">View</a>
+          <a href="delete-package.html" class="btn-action">Delete</a>
+        </td>
+      </tr>
+
+      <!-- Tokyo Package -->
+      <tr>
+        <td data-label="Image"><img src="https://images.pexels.com/photos/208701/pexels-photo-208701.jpeg" class="package-img" alt="Tokyo Explorer"></td>
+        <td data-label="Package Name">Tokyo Explorer</td>
+        <td data-label="Destination">Tokyo</td>
+        <td data-label="Price">₹11000</td>
+        <td data-label="Actions">
+          <a href="edit-package.html" class="btn-action">Edit</a>
+          <a href="view-package.html" class="btn-action">View</a>
+          <a href="delete-package.html" class="btn-action">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+<div class="text-center mt-4">
+  <a href="manage bookings.html" class="btn btn-lg btn-outline-primary shadow-sm">
+    📋 Manage Bookings
+  </a>
+</div>
+
+
+     <!-- Footer -->
+  <footer>
+    &copy; 2025 TravelVibe | 📞 +91 9587461463 | ✉️ <a href="mailto:TravelVibe@email.com">TravelVibe@email.com</a>
+  </footer>
+  
+</body>
+</html>

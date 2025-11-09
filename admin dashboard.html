@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f4f6f9;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .top-bar, .bottom-bar {
+      background-color: #2a5298;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+
+    .top-bar span, .bottom-bar span {
+      margin-right: 20px;
+    }
+
+    .dashboard {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .dashboard h2 {
+      margin-bottom: 30px;
+      font-weight: 600;
+      color: #2a5298;
+    }
+
+    .stat-box {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 30px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .stat-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .stat-title {
+      font-size: 20px;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .stat-value {
+      font-size: 36px;
+      font-weight: 700;
+      color: #2a5298;
+    }
+
+    .contact-title {
+      font-weight: 600;
+      margin-right: 15px;
+    }
+
+    .emoji {
+      font-size: 24px;
+      margin-right: 10px;
+    }
+
+    .btn-add-package {
+      margin-top: 30px;
+      background-color: #2a5298;
+      color: #fff;
+      font-weight: 500;
+      padding: 12px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-add-package:hover {
+      background-color: #1e3c72;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Contact Bar -->
+  <div class="top-bar d-flex justify-content-between align-items-center">
+    <div><span class="emoji">📞</span>+91 9587461463</div>
+    <div><span class="emoji">📧</span>TravelVibe@gmail.com</div>
+  </div>
+
+  <!-- Dashboard Content -->
+  <div class="dashboard container">
+    <h2><span class="emoji">👨‍💼</span>Admin Dashboard</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="stat-box">
+          <div class="stat-title">Total Packages</div>
+          <div class="stat-value">6</div>
+          <!--<p class="text-muted mb-0">Active tour packages available</p>-->
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stat-box">
+          <div class="stat-title">Total Users</div>
+          <div class="stat-value">8</div>
+       <!--<p class="text-muted mb-0">Registered customers on the platform</p>-->   
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stat-box">
+          <div class="stat-title">Total Bookings</div>
+          <div class="stat-value">4</div>
+         <!--<p class="text-muted mb-0">Completed bookings this month</p>--> 
+        </div>
+      </div>
+    </div>
+
+    <!-- Add New Package Button -->
+    <a href="add new package.html" class="btn btn-lg btn-outline-primary shadow-sm">➕ Add New Package</a>
+  </div>
+
+  <!-- Bottom Contact Bar -->
+  <div class="bottom-bar d-flex justify-content-between align-items-center">
+    <div><span class="contact-title">Contact Us</span><span class="emoji">📞</span>+91 9587461463</div>
+    <div><span class="emoji">✉️</span>TravelVibe@email.com</div>
+  </div>
+
+</body>
+</html>
